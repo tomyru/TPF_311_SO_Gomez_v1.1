@@ -1,5 +1,4 @@
 #!/bin/bash
-# Con '-e' el script se detiene inmediatamente si algún comando falla
 set -e
 
 # =====================================================================
@@ -33,6 +32,7 @@ echo "[Monitoreo] Montando partición y creando subcarpetas..."
 sudo mount /home/vagrant/dev/Monitoreo
 sudo mkdir -p /home/vagrant/dev/Monitoreo/{Alertas,Logs,Metricas}
 
+
 # =====================================================================
 # SECCIÓN 3: CONFIGURACIÓN DE LA PARTICIÓN LÓGICA 1 EN "WEB" (/dev/sdc5)
 echo "[Web] Formateando partición lógica /dev/sdc5 en ext4..."
@@ -47,8 +47,24 @@ echo "UUID=$UUID_SDC5  /home/vagrant/dev/Servicios/Web  ext4  defaults  0  2" | 
 echo "[Web] Montando la partición lógica dentro de Servicios/Web..."
 sudo mount /home/vagrant/dev/Servicios/Web
 
+
 # =====================================================================
-# SECCIÓN 4: AJUSTE FINAL DE PERMISOS GLOBAL
+# SECCIÓN 4: CONFIGURACIÓN DE LA PARTICIÓN LÓGICA 2 EN "CACHE" (/dev/sdc6)
+echo "[Cache] Formateando partición lógica /dev/sdc6 en ext4..."
+sudo mkfs.ext4 -F /dev/sdc6
+
+echo "[Cache] Obteniendo el UUID de /dev/sdc6..."
+UUID_SDC6=$(sudo blkid -s UUID -o value /dev/sdc6)
+
+echo "[Cache] Agregando a /etc/fstab para persistencia anidada..."
+echo "UUID=$UUID_SDC6  /home/vagrant/dev/Servicios/Cache  ext4  defaults  0  2" | sudo tee -a /etc/fstab
+
+echo "[Cache] Montando la partición lógica dentro de Servicios/Cache..."
+sudo mount /home/vagrant/dev/Servicios/Cache
+
+
+# =====================================================================
+# SECCIÓN 5: AJUSTE FINAL DE PERMISOS GLOBAL
 echo "Asignando la propiedad de todas las estructuras al usuario 'vagrant'..."
 sudo chown -R vagrant:vagrant /home/vagrant/dev/
 
