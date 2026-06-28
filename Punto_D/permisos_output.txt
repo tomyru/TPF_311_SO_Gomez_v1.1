@@ -26,3 +26,17 @@ drwx------ 2 vagrant vagrant  4096 Jun 27 23:26 Alertas
 drwxr-xr-- 3 vagrant vagrant  4096 Jun 27 23:26 Logs
 drwxr-xr-x 2 vagrant vagrant  4096 Jun 27 23:26 Metricas
 drwx------ 2 vagrant vagrant 16384 Jun 27 23:26 lost+found
+total 36
+drwxr-xr-x 6 vagrant vagrant  4096 Jun 27 23:35 .
+drwxr-xr-x 4 vagrant vagrant  4096 Jun 27 23:34 ..
+drwx------ 2 vagrant vagrant  4096 Jun 27 23:35 Base_de_Datos
+drw-r--r-- 3 vagrant vagrant  4096 Jun 27 23:35 Cache
+drwxr-xr-x 3 vagrant vagrant  4096 Jun 27 23:35 Web
+drwx------ 2 vagrant vagrant 16384 Jun 27 23:35 lost+found
+total 36
+drwxr-xr-x 6 vagrant vagrant  4096 Jun 27 23:35 .
+drwxr-xr-x 4 vagrant vagrant  4096 Jun 27 23:34 ..
+drwx------ 2 vagrant vagrant  4096 Jun 27 23:35 Alertas
+drwxr-xr-- 3 vagrant vagrant  4096 Jun 27 23:35 Logs
+drwxr-xr-x 2 vagrant vagrant  4096 Jun 27 23:35 Metricas
+drwx------ 2 vagrant vagrant 16384 Jun 27 23:35 lost+found
